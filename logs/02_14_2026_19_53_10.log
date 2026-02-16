@@ -1,0 +1,8 @@
+[ 2026-02-14 19:53:11,022 ] 18 root - INFO - Entered data ingestion method
+[ 2026-02-14 19:53:11,028 ] 22 root - INFO - Read dataset as dataframe
+[ 2026-02-14 19:53:11,041 ] 33 root - INFO - Train and Test data saved
+[ 2026-02-14 19:53:11,042 ] 18 root - INFO - Data Transformation started
+[ 2026-02-14 19:53:11,051 ] 24 root - INFO - Train and Test data read successfully
+[ 2026-02-14 19:53:11,053 ] 33 root - INFO - Input and target features separated
+[ 2026-02-14 19:53:11,060 ] 46 root - INFO - Data scaling completed
+[ 2026-02-14 19:53:11,063 ] 54 root - INFO - Preprocessor object saved successfully

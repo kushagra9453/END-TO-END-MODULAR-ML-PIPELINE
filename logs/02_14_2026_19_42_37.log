@@ -1,0 +1,4 @@
+[ 2026-02-14 19:42:37,083 ] 17 root - INFO - Entered data ingestion method
+[ 2026-02-14 19:42:37,119 ] 21 root - INFO - Read dataset as dataframe
+[ 2026-02-14 19:42:37,127 ] 26 root - INFO - Raw data saved
+[ 2026-02-14 19:42:37,148 ] 33 root - INFO - Train and Test data saved

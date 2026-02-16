@@ -1,0 +1,11 @@
+[ 2026-02-14 19:56:10,030 ] 18 root - INFO - Entered data ingestion method
+[ 2026-02-14 19:56:10,035 ] 22 root - INFO - Read dataset as dataframe
+[ 2026-02-14 19:56:10,051 ] 33 root - INFO - Train and Test data saved
+[ 2026-02-14 19:56:10,051 ] 18 root - INFO - Data Transformation started
+[ 2026-02-14 19:56:10,059 ] 24 root - INFO - Train and Test data read successfully
+[ 2026-02-14 19:56:10,060 ] 33 root - INFO - Input and target features separated
+[ 2026-02-14 19:56:10,068 ] 46 root - INFO - Data scaling completed
+[ 2026-02-14 19:56:10,070 ] 54 root - INFO - Preprocessor object saved successfully
+[ 2026-02-14 19:56:10,071 ] 18 root - INFO - Training model started
+[ 2026-02-14 19:56:10,077 ] 26 root - INFO - Model trained with R2 score: 1.0
+[ 2026-02-14 19:56:10,078 ] 31 root - INFO - Model saved successfully
