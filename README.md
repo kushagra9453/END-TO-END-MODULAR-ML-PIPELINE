@@ -1,28 +1,21 @@
-# Student Performance Prediction: End-to-End Modular ML Pipeline
+# End-to-End Salary Prediction (Modular ML Pipeline)
 
-## 📌 Project Overview
-This project is a comprehensive Machine Learning solution designed to predict student math scores based on demographic and academic features. It is built using a **modular software engineering approach**, ensuring scalability, maintainability, and production-readiness.
+## Overview
+This is a production-grade Machine Learning project designed to predict salaries based on years of experience. The core strength of this project is its **Modular Architecture**, making it scalable and easy to maintain.
 
-## 🛠️ Tech Stack
-* **Language:** Python 3.8+
-* **Framework:** Flask (Web Interface)
-* **Libraries:** Scikit-Learn, Pandas, Numpy, Seaborn, Dill
-* **Architecture:** Modular Coding (Components & Pipelines)
+## Project Structure
+- **Data Ingestion**: Handles reading data from sources and splitting into Train/Test sets.
+- **Data Transformation**: Uses Scikit-Learn pipelines for scaling and feature engineering.
+- **Model Trainer**: Evaluates multiple algorithms and exports the best performing model.
+- **Web Interface**: A Flask-based web app for real-time user predictions.
 
-## 🏗️ Project Structure
-The project follows an industry-standard directory structure:
-* `src/components`: Handles Data Ingestion, Transformation, and Model Training.
-* `src/pipeline`: Contains Training and Prediction pipelines.
-* `artifacts/`: Stores the trained model (`model.pkl`) and preprocessor object.
-* `logs/`: Tracks every execution step for debugging.
-* `templates/`: HTML files for the web interface.
+## Tech Stack
+- **Language**: Python 3.8+
+- **ML Libraries**: Pandas, Numpy, Scikit-Learn
+- **Web Framework**: Flask
+- **Logging/Exception**: Custom components for robust error handling.
 
-## 🚀 Key Features
-- **Automated Data Pipeline:** From raw CSV to trained model with a single command.
-- **Custom Logging & Exception Handling:** Robust error tracking for production stability.
-- **Predictive Web Interface:** A user-friendly Flask app to input data and receive real-time predictions.
-
-## 💻 How to Run Locally
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/kushagra9453/END-TO-END-MODULAR-ML-PIPELINE.git](https://github.com/kushagra9453/END-TO-END-MODULAR-ML-PIPELINE.git)
+## How to Run
+1. Install requirements: `pip install -r requirements.txt`
+2. Run the pipeline: `python src/components/data_ingestion.py`
+3. Start the Web App: `python app.py`
