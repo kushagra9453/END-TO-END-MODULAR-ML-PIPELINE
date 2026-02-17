@@ -1,0 +1,5 @@
+[ 2026-02-16 18:43:58,072 ] 18 root - INFO - Entered data ingestion method
+[ 2026-02-16 18:43:58,102 ] 22 root - INFO - Read dataset as dataframe
+[ 2026-02-16 18:43:58,127 ] 33 root - INFO - Train and Test data saved
+[ 2026-02-16 18:43:58,128 ] 18 root - INFO - Data Transformation started
+[ 2026-02-16 18:43:58,157 ] 24 root - INFO - Train and Test data read successfully
