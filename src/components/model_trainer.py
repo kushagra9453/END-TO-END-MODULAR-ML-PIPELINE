@@ -1,61 +1,76 @@
 import os
 import sys
-import pickle
+from dataclasses import dataclass
+
+from sklearn.ensemble import (
+    AdaBoostRegressor,
+    GradientBoostingRegressor,
+    RandomForestRegressor,
+)
 from sklearn.linear_model import LinearRegression
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import r2_score
-from sklearn.model_selection import GridSearchCV
+from sklearn.tree import DecisionTreeRegressor
+from xgboost import XGBRegressor
 
 from src.exception import CustomException
 from src.logger import logging
+from src.utils import save_object
 
+@dataclass
+class ModelTrainerConfig:
+    trained_model_file_path = os.path.join("artifacts", "model.pkl")
 
 class ModelTrainer:
     def __init__(self):
-        self.model_file_path = os.path.join("artifacts", "model.pkl")
+        self.model_trainer_config = ModelTrainerConfig()
 
-    def initiate_model_trainer(self, train_arr, test_arr, train_y, test_y):
+    def initiate_model_trainer(self, train_array, test_array):
         try:
+            logging.info("Splitting training and test input data")
+            X_train, y_train, X_test, y_test = (
+                train_array[:, :-1],
+                train_array[:, -1],
+                train_array[:, :-1],
+                train_array[:, -1]
+            )
             models = {
-                "LinearRegression": LinearRegression(),
-                "DecisionTree": DecisionTreeRegressor(),
-                "RandomForest": RandomForestRegressor()
+                "Random Forest": RandomForestRegressor(),
+                "Decision Tree": DecisionTreeRegressor(),
+                "Gradient Boosting": GradientBoostingRegressor(),
+                "Linear Regression": LinearRegression(),
+                "XGBRegressor": XGBRegressor(),
+                "AdaBoost Regressor": AdaBoostRegressor(),
             }
 
-            params = {
-                "DecisionTree": {
-                    "max_depth": [None, 5, 10]
-                },
-                "RandomForest": {
-                    "n_estimators": [50, 100],
-                    "max_depth": [None, 5]
-                }
-            }
+            model_report = {}
 
-            best_model = None
-            best_score = -1
+            for i in range(len(list(models))):
+                model = list(models.values())[i]
+                model.fit(X_train, y_train) # Training model
 
-            for model_name, model in models.items():
-                if model_name in params:
-                    gs = GridSearchCV(model, params[model_name], cv=3)
-                    gs.fit(train_arr, train_y)
-                    model = gs.best_estimator_
-                else:
-                    model.fit(train_arr, train_y)
+                y_test_pred = model.predict(X_test)
+                test_model_score = r2_score(y_test, y_test_pred)
+                model_report[list(models.keys())[i]] = test_model_score
 
-                preds = model.predict(test_arr)
-                score = r2_score(test_y, preds)
+            # To get best model score from dict
+            best_model_score = max(sorted(model_report.values()))
 
-                if score > best_score:
-                    best_score = score
-                    best_model = model
+            # To get best model name from dict
+            best_model_name = list(model_report.keys())[
+                list(model_report.values()).index(best_model_score)
+            ]
+            best_model = models[best_model_name]
 
-            with open(self.model_file_path, "wb") as f:
-                pickle.dump(best_model, f)
+            logging.info(f"Best found model on both training and testing dataset")
 
-            print("Best R2 Score:", best_score)
-            return best_score
+            save_object(
+                file_path=self.model_trainer_config.trained_model_file_path,
+                obj=best_model
+            )
+
+            predicted = best_model.predict(X_test)
+            r2_square = r2_score(y_test, predicted)
+            return r2_square
 
         except Exception as e:
             raise CustomException(e, sys)

@@ -1,0 +1,7 @@
+[ 2026-02-17 14:45:38,771 ] 18 root - INFO - Entered data ingestion method
+[ 2026-02-17 14:45:38,774 ] 22 root - INFO - Read dataset as dataframe
+[ 2026-02-17 14:45:38,786 ] 33 root - INFO - Train and Test data saved
+[ 2026-02-17 14:45:38,792 ] 68 root - INFO - Read train and test data completed
+[ 2026-02-17 14:45:38,792 ] 69 root - INFO - Obtaining preprocessing object
+[ 2026-02-17 14:45:38,792 ] 48 root - INFO - Categorical columns: ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+[ 2026-02-17 14:45:38,793 ] 49 root - INFO - Numerical columns: ['writing score', 'reading score']

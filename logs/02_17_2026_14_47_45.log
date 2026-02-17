@@ -1,0 +1,8 @@
+[ 2026-02-17 14:47:46,034 ] 18 root - INFO - Entered data ingestion method
+[ 2026-02-17 14:47:46,037 ] 22 root - INFO - Read dataset as dataframe
+[ 2026-02-17 14:47:46,049 ] 33 root - INFO - Train and Test data saved
+[ 2026-02-17 14:47:46,056 ] 73 root - INFO - Read train and test data completed
+[ 2026-02-17 14:47:46,056 ] 74 root - INFO - Obtaining preprocessing object
+[ 2026-02-17 14:47:46,056 ] 48 root - INFO - Categorical columns: ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+[ 2026-02-17 14:47:46,056 ] 49 root - INFO - Numerical columns: ['writing score', 'reading score']
+[ 2026-02-17 14:47:46,057 ] 82 root - ERROR - Target column 'math score' not found. Available columns: ['experience', 'salary']

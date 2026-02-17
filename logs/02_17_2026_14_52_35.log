@@ -1,0 +1,5 @@
+[ 2026-02-17 14:52:35,716 ] 18 root - INFO - Entered data ingestion method
+[ 2026-02-17 14:52:35,720 ] 22 root - INFO - Read dataset as dataframe
+[ 2026-02-17 14:52:35,731 ] 33 root - INFO - Train and Test data saved
+[ 2026-02-17 14:52:35,758 ] 29 root - INFO - Splitting training and test input data
+[ 2026-02-17 14:52:36,353 ] 64 root - INFO - Best found model on both training and testing dataset

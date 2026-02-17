@@ -41,11 +41,12 @@ class DataIngestion:
 from src.components.model_trainer import ModelTrainer
 
 if __name__ == "__main__":
-    ingestion_obj = DataIngestion()
-    train_path, test_path = ingestion_obj.initiate_data_ingestion()
+    obj=DataIngestion()
+    train_data,test_data=obj.initiate_data_ingestion()
 
-    transformation_obj = DataTransformation()
-    train_arr, test_arr, train_y, test_y = transformation_obj.initiate_data_transformation(train_path, test_path)
+    data_transformation=DataTransformation()
+    # Fixed: Only catching 3 values to match data_transformation.py
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
-    model_trainer_obj = ModelTrainer()
-    print(model_trainer_obj.initiate_model_trainer(train_arr, test_arr, train_y, test_y))
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
